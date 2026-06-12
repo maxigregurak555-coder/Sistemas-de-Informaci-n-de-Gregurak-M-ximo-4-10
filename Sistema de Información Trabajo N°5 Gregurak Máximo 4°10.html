@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Arquitectura de Sistemas Informáticos</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm 15mm;
+            background-color: #f8fafc;
+            @bottom-right {
+                content: counter(page);
+                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                font-size: 9pt;
+                color: #64748b;
+            }
+            @bottom-left {
+                content: "Guía de Arquitectura de Sistemas";
+                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                font-size: 9pt;
+                color: #64748b;
+            }
+        }
+        
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #1e293b;
+            line-height: 1.6;
+            font-size: 10.5pt;
+        }
+
+        .header-container {
+            background-color: #0f172a;
+            color: #ffffff;
+            margin: -20mm -15mm 25px -15mm;
+            padding: 30px 15mm 25px 15mm;
+            border-bottom: 4px solid #3b82f6;
+        }
+
+        h1 {
+            font-size: 24pt;
+            margin: 0 0 8px 0;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 12pt;
+            color: #94a3b8;
+            margin: 0;
+            font-weight: 400;
+        }
+
+        h2 {
+            font-size: 14pt;
+            color: #0f172a;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #e2e8f0;
+            page-break-after: avoid;
+        }
+
+        .intro-box {
+            background-color: #ffffff;
+            border-left: 4px solid #3b82f6;
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 0 6px 6px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .intro-box p {
+            margin: 0;
+            font-size: 11pt;
+            color: #334155;
+        }
+
+        .grid-card {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 16px;
+            margin-bottom: 18px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+            page-break-inside: avoid;
+        }
+
+        .grid-card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #1e3a8a;
+            font-size: 12pt;
+            font-weight: 600;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 4px;
+        }
+
+        .example-tag {
+            display: inline-block;
+            background-color: #eff6ff;
+            color: #1d4ed8;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 9.5pt;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+
+        .cloud-models {
+            margin-top: 10px;
+            padding-left: 10px;
+            border-left: 2px solid #cbd5e1;
+        }
+
+        .cloud-item {
+            margin-bottom: 8px;
+        }
+
+        .cloud-title {
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            margin-bottom: 25px;
+            font-size: 10pt;
+            background-color: #ffffff;
+            page-break-inside: avoid;
+        }
+
+        th, td {
+            border: 1px solid #cbd5e1;
+            padding: 10px 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #1e293b;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        .activity-box {
+            background-color: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-radius: 6px;
+            padding: 15px;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            page-break-inside: avoid;
+        }
+
+        .activity-box h4 {
+            margin-top: 0;
+            margin-bottom: 6px;
+            color: #b45309;
+            font-size: 11pt;
+            font-weight: 600;
+        }
+
+        .activity-box p {
+            margin: 0;
+            color: #78350f;
+        }
+
+        .glossary-table td:first-child {
+            font-weight: 600;
+            color: #1e3a8a;
+            width: 30%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <h1>Arquitectura de Sistemas Informáticos</h1>
+        <div class="subtitle">Conceptos Fundamentales, Modelos y Glosario Técnico</div>
+    </div>
+
+    <h2>1. ¿Qué es una arquitectura de sistemas?</h2>
+    <div class="intro-box">
+        <p>Es el plano estructural de un sistema informático. Define cómo se organizan sus componentes, cómo se comunican y qué tecnologías se usan. Una buena arquitectura garantiza escalabilidad, mantenibilidad y rendimiento.</p>
+    </div>
+
+    <h2>Modelos de Arquitectura</h2>
+
+    <div class="grid-card">
+        <h3>2. Arquitectura Cliente-Servidor</h3>
+        <ul>
+            <li>Clientes piden recursos; el servidor responde de manera centralizada.</li>
+            <li><strong>Ventajas:</strong> Centralización, seguridad reforzada y fácil administración.</li>
+            <li><strong>Desventajas:</strong> Posible sobrecarga en el nodo central y representa un punto único de fallo.</li>
+        </ul>
+        <div class="example-tag"><strong>Ejemplo:</strong> Correo electrónico, navegación web tradicional.</div>
+    </div>
+
+    <div class="grid-card">
+        <h3>3. Arquitectura de Tres Capas</h3>
+        <p style="margin: 0 0 8px 0;">Divide el sistema de forma limpia y desacoplada en:</p>
+        <ol style="margin: 0 0 10px 0; padding-left: 20px;">
+            <li><strong>Presentación:</strong> Interfaz de usuario (Frontend).</li>
+            <li><strong>Lógica de negocio:</strong> Reglas, procesos y transformaciones de datos (Backend).</li>
+            <li><strong>Datos:</strong> Sistema de gestión de bases de datos (Persistencia).</li>
+        </ol>
+        <p style="margin: 0;"><em>Permite modificar o escalar cada capa de manera independiente sin afectar a las demás.</em></p>
+        <div class="example-tag"><strong>Ejemplo:</strong> Tiendas online (E-commerce).</div>
+    </div>
+
+    <div class="grid-card">
+        <h3>4. Arquitectura Orientada a Servicios (SOA)</h3>
+        <ul>
+            <li>Consiste en un conjunto de servicios autónomos y reutilizables que se comunican entre sí mediante protocolos estándar.</li>
+            <li>Promueve fuertemente la interoperabilidad entre sistemas heterogéneos y diferentes tecnologías.</li>
+        </ul>
+        <div class="example-tag"><strong>Ejemplo:</strong> Sistemas bancarios integrados (validación de clientes, pasarelas de pagos, transferencias).</div>
+    </div>
+
+    <div class="grid-card">
+        <h3>5. Microservicios</h3>
+        <ul>
+            <li>La aplicación está formada por una colección de pequeños servicios autónomos, donde cada uno cuenta con su propia base de datos independiente.</li>
+            <li><strong>Ventajas:</strong> Escalamiento fino y modular, alta tolerancia a fallos, y permite el trabajo de equipos pequeños y enfocados.</li>
+            <li><strong>Desventajas:</strong> Introduce una mayor complejidad operativa y de red.</li>
+        </ul>
+        <div class="example-tag"><strong>Ejemplo:</strong> Plataformas de streaming y comercio masivo como Netflix, Amazon, Spotify.</div>
+    </div>
+
+    <div class="grid-card">
+        <h3>6. Computación en la Nube</h3>
+        <p style="margin: 0 0 10px 0;">Se organiza principalmente en tres modelos de servicio:</p>
+        <div class="cloud-models">
+            <div class="cloud-item"><span class="cloud-title">IaaS (Infraestructura como servicio):</span> Proporciona control total sobre servidores virtuales y recursos de hardware. <br><small style="color:#64748b;">Ejemplo: AWS EC2.</small></div>
+            <div class="cloud-item"><span class="cloud-title">PaaS (Plataforma como servicio):</span> Entorno optimizado y enfocado exclusivamente en el desarrollo de código y despliegue rápido. <br><small style="color:#64748b;">Ejemplo: Heroku.</small></div>
+            <div class="cloud-item"><span class="cloud-title">SaaS (Software como servicio):</span> Aplicaciones listas para usar directamente desde un navegador web, sin gestionar infraestructura. <br><small style="color:#64748b;">Ejemplo: Gmail, Office 365.</small></div>
+        </div>
+    </div>
+
+    <div class="grid-card">
+        <h3>7. Arquitectura Distribuida</h3>
+        <ul>
+            <li>Los componentes están ubicados en diferentes nodos de red físicos o virtuales y se comunican estrictamente mediante el intercambio de mensajes.</li>
+            <li>Destaca por ofrecer una alta disponibilidad, escalabilidad horizontal y gran tolerancia a fallos.</li>
+        </ul>
+        <div class="example-tag"><strong>Ejemplo:</strong> Motor de búsqueda de Google Search, tecnología blockchain, redes peer-to-peer (P2P).</div>
+    </div>
+
+    <h2>8. ¿Cómo elegir la arquitectura adecuada?</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Requerimiento del Negocio / Técnico</th>
+                <th>Arquitectura Recomendada</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Pequeña aplicación de uso interno</td>
+                <td>Cliente-Servidor o 3 capas</td>
+            </tr>
+            <tr>
+                <td>Alta necesidad de integración externa con terceros</td>
+                <td>SOA (Orientada a Servicios)</td>
+            </tr>
+            <tr>
+                <td>Necesidad de escalabilidad extrema y despliegues independientes</td>
+                <td>Microservicios</td>
+            </tr>
+            <tr>
+                <td>Recursos elásticos bajo demanda sin inversión inicial en hardware</td>
+                <td>Cloud (IaaS / PaaS / SaaS)</td>
+            </tr>
+            <tr>
+                <td>Alta redundancia, resiliencia y baja latencia global</td>
+                <td>Arquitectura Distribuida</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="activity-box">
+        <h4>Actividad sugerida:</h4>
+        <p>Elegir y justificar la arquitectura ideal para un <strong>sistema de inscripciones escolares</strong> que atiende a una población de 10,000 alumnos y experimenta picos masivos de uso concentrados únicamente en el mes de marzo.</p>
+    </div>
+
+    <h2 style="page-break-before: always;">Glosario de Términos Técnicos</h2>
+    <table class="glossary-table">
+        <thead>
+            <tr>
+                <th>Término</th>
+                <th>Significado y Definición</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Arquitectura de sistemas</td>
+                <td>Estructura, organización y patrones de interconexión de los componentes de un sistema informático.</td>
+            </tr>
+            <tr>
+                <td>Cliente</td>
+                <td>Dispositivo, aplicación o programa que solicita recursos o servicios a un nodo central o servidor.</td>
+            </tr>
+            <tr>
+                <td>Servidor</td>
+                <td>Computadora de altas prestaciones o programa dedicado que provee recursos, procesamiento o datos a los clientes.</td>
+            </tr>
+            <tr>
+                <td>Punto único de fallo</td>
+                <td>Componente crítico cuya hipotética falla o interrupción provoca la caída completa del sistema.</td>
+            </tr>
+            <tr>
+                <td>Escalabilidad</td>
+                <td>Capacidad inherente de un sistema para crecer de forma fluida y manejar un incremento en la carga de trabajo.</td>
+            </tr>
+            <tr>
+                <td>Mantenibilidad</td>
+                <td>La facilidad, rapidez y menor coste con la que un sistema software puede ser reparado, corregido o mejorado.</td>
+            </tr>
+            <tr>
+                <td>Interoperabilidad</td>
+                <td>Capacidad de distintos sistemas independientes y heterogéneos para intercambiar de manera transparente y usar información.</td>
+            </tr>
+            <tr>
+                <td>Protocolo estándar</td>
+                <td>Conjunto de reglas y directrices aceptadas mundialmente para habilitar la comunicación (ej. HTTP, TCP/IP).</td>
+            </tr>
+            <tr>
+                <td>Microservicio</td>
+                <td>Servicio de alcance acotado, autónomo, desacoplado y con capacidad de ser desplegado de manera independiente.</td>
+            </tr>
+            <tr>
+                <td>Contenedor (Docker)</td>
+                <td>Tecnología de virtualización ligera que empaqueta una aplicación y sus dependencias para ejecutarse de forma aislada.</td>
+            </tr>
+            <tr>
+                <td>IaaS</td>
+                <td>Infraestructura como Servicio: modelo de nube donde se alquilan recursos puros de computación como servidores virtuales y almacenamiento.</td>
+            </tr>
+            <tr>
+                <td>PaaS</td>
+                <td>Plataforma como Servicio: modelo de nube donde se provee un entorno listo con sistemas operativos y bases de datos para desplegar apps.</td>
+            </tr>
+            <tr>
+                <td>SaaS</td>
+                <td>Software como Servicio: aplicaciones completas listas para su consumo final directo a través de internet.</td>
+            </tr>
+            <tr>
+                <td>Nodo</td>
+                <td>Cualquier dispositivo activo y direccionable conectado dentro de una red informática (ej. servidor, switch, PC).</td>
+            </tr>
+            <tr>
+                <td>Tolerancia a fallos</td>
+                <td>Propiedad que permite a un sistema seguir operando correctamente a un nivel aceptable, incluso ante fallos parciales de hardware o software.</td>
+            </tr>
+            <tr>
+                <td>Red peer-to-peer (P2P)</td>
+                <td>Red descentralizada donde todos los nodos actúan simultáneamente como clientes y servidores de información, prescindiendo de un nodo central.</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

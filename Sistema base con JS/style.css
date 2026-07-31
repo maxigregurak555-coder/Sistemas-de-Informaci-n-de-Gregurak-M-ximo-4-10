@@ -1,0 +1,60 @@
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    margin: 20px;
+    background-color: lightblue;
+    color: #333;
+    line-height: 1.6;
+}
+
+h1 {
+    color: #1a73e8;
+    border-bottom: 2px solid #1a73e8;
+    padding-bottom: 5px;
+}
+
+h3.encabezado-alumnos {
+    color: black;
+    border-bottom: 2px solid #1a73e8;
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h3.encabezado-alumnos img {
+    margin: 5;
+}
+
+img {
+    display: block;
+    margin: 15px 0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: #e91e63;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button.btn-accion {
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.btn-accion:hover {
+    background-color: #0b51c1;
+}

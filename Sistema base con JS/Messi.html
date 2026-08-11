@@ -38,13 +38,12 @@
     <img src="croacias.jpeg" width="570">
     <p><a href="https://www.youtube.com/watch?v=5glA7GdhxEw" target="_blank">Argentino hasta lo último. </a></p>
     
-    <script>
-        const enlaces = document.querySelectorAll('a[target="_blank"]');
-        
- enlaces.forEach(function(link) {
-            
+    <script>   
+    enlaces.forEach(function(link) {
+    window.open(this.href, '_blank'); 
             });
-        });
+         );
     </script>
+
 </body>
 </html>

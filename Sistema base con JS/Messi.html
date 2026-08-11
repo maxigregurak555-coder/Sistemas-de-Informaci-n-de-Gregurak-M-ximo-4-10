@@ -38,10 +38,11 @@
     
     <script>
         const enlaces = document.querySelectorAll('a[target="_blank"]');
-        enlaces.forEach(function(link) {
+        
+ enlaces.forEach(function(link) {
             link.addEventListener('click', function(evento) {
-                evento.preventDefault(); // evitamos que el navegador siga el href
-                window.open(this.href, '_blank'); // abrimos la URL manualmente
+                evento.preventDefault(); 
+    window.open(this.href, '_blank'); // abrimos la URL manualmente
             });
         });
     </script>

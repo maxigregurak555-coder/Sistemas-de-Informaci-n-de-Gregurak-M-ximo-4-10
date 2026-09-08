@@ -1,0 +1,66 @@
+RESUMEN DE RESPUESTAS 
+=======================
+Gassibe Nahir y Gregurak Máximo 4°10
+=======================
+
+1. 1. Identificar entidades
+Cliente-Producto-Pedidos-Empleados
+
+2. 2. Atributos de cada entidad
+Cliente: Nombre(Simple), Apellido(Simple), DNI(Simple), Dirección(Compuesta), Email(Multivaluado), Teléfono(Multivaluado).
+Pedidos: ID_Cliente(Simple), Número_Pedido(Simple), Categoria(Simple), Cantidad(Simple), Categoria(Simple) Fecha_Salida(Simple).
+Producto: ID_Pedido(Simple), Código(simple), Nombre(Simple), Precio(Simple), Stock(Simple).
+Empleados: Nombre(Simple), Apellido(Simple), Cargo(Simple), Fecha_Ingreso(Simple).
+
+3. 3. Claves candidatas y clave primaria
+Cliente: DNI(PK) (Porqué no puede cambiar y es única por persona)
+Pedido: ID_Pedido (PK), (Porque es no puede cambiar el número de pedido y es única para siempre).
+Producto: Código(PK) (Porqué cada producto tiene su propio código y no se puede cambiar el número de codigo, por eso es único)
+Empleado: Identificador(PK) (Porqué cada persona tiene su propio identificador y no es posible cambiarlo)
+
+Email no podría ser porque el cliente puede cambiar su Email en algún momento de su vida, en cambio el DNI no porque es único para siempre.
+
+4. 4. Relaciones entre entidades
+Cliente -> Pedido ( 1:N )
+Pedido -> Producto ( 1:N )
+Pedido -> Empleado ( N:1 )
+
+5. 5. Cardinalidad de cada relación
+Cliente -> Pedido ( 1:N ) (Porqué un cliente puede hacer varios pedidos y que varios pedidos puede hacerlo solo un cliente).
+Pedido -> Producto ( 1:N ) (Porque un solo pedido puede tener varios productos y que varios productos pueden tener un solo pedido).
+Empleado -> Pedido ( N:1 ) (Porque un empleado puede tener varios pedidos, pero cada pedido puede tener un solo empleado).
+
+6. 6. Atributos de las relaciones
+Pedido-Cliente: la tabla Pedidos se relaciona con la tabla Cliente, porque necesita el ID del cliente.
+Producto-Pedido: la tabla Producto se relaciona con la tabla Pedidos, porque la tabla de Producto necesita el ID del pedido.
+
+7. 7. Atributos multivaluados
+Clientes: ID_Cliente(PK), nombre, apellido, dni, dirección, ID_Telefóno (FK), ID_Email (FK)
+
+Email: ID_email, ID_dirección, ID_cliente (FK).
+
+Telefono: ID_telefono, ID_región, ID_número, ID_cliente (FK).
+
+Producto: ID_producto, ID_nombre, ID_cliente(FK).
+
+8. 8. Tablas del diccionario de datos (I)
+El profesor no lo ha explicado aún.
+
+9. 9. Tablas del diccionario de datos (II)
+El profesor no lo ha explicado aún.
+
+10. 10. Listado final de tablas
+Clientes:
+id_Cliente(PK), nombre, apellido, dni, dirección, id_Telefóno(FK), id_Email(FK)
+
+Productos:
+id_Productos(PK), código_producto, nombre_producto, precio_producto, stock_producto
+
+Compra:
+id_Compra(PK), id_Productos(FK), id_Clientes(FK), fecha_compra, total_compra
+
+Pedido:
+id_Pedido(PK), id_Compra(FK), id_Producto(FK), cantidad
+
+=======================
+📌 Recuerda: Dibuja el diagrama E-R en papel o con herramienta y súbelo junto con este resumen.

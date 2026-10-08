@@ -117,7 +117,7 @@
       });
 
       form.reset();
-      cargarUsuarios(); // Actualiza la tabla dinámicamente
+      cargarUsuarios();
     });
 
         cargarUsuarios();

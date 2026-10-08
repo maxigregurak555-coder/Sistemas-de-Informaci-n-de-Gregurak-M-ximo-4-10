@@ -1,8 +1,7 @@
 ====================================================
 Manual Paso a Paso: Integración de Base de Datos SQL con "Node.js" y "JavaScript".
 Este manual describe el procedimiento detallado para instalar, configurar y desarrollar una aplicación web con Node.js, Express y SQLite (better-sqlite3), permitiendo insertar y consultar información mediante un formulario web.
-En caso de querer ver un video con el paso a paso pueden ingresar en este video
-“https://youtu.be/sMPdYVt3UTI?si=cXVMnQtfxZbw1AGK”
+En caso de querer ver un video con el paso a paso pueden ingresar en el video.
 
 1.Requisitos y preparación del entorno.
 

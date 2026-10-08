@@ -67,3 +67,181 @@ Ingresa un Nombre y un Correo en los campos del formulario y presiona Guardar Re
 Comprueba que el elemento de la tabla se actualiza de manera inmediata sin recargar la página, haciendo la llamada fetch al endpoint GET.
 =====================================================
 
+Server
+
+const express = require('express');
+const Database = require('better-sqlite3');
+const path = require('path');
+
+const app = express();
+const PORT = 3000;
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+
+const db = new Database('sistema.db');
+
+db.exec(`
+  CREATE TABLE IF NOT EXISTS usuarios (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre TEXT NOT NULL,
+    email TEXT NOT NULL
+  )
+`);
+
+app.post('/api/usuarios', (req, res) => {
+  const { nombre, email } = req.body;
+
+  if (!nombre || !email) {
+    return res.status(400).json({ error: 'El nombre y el email son obligatorios.' });
+  }
+
+  const stmt = db.prepare('INSERT INTO usuarios (nombre, email) VALUES (?, ?)');
+  const result = stmt.run(nombre, email);
+
+  res.json({ id: result.lastInsertRowid, nombre, email });
+});
+
+app.get('/api/usuarios', (req, res) => {
+  const stmt = db.prepare('SELECT * FROM usuarios ORDER BY id DESC');
+  const usuarios = stmt.all();
+
+  res.json(usuarios);
+});
+
+
+app.listen(PORT, () => {
+  console.log(`Servidor activo en http://localhost:${PORT}`);
+});
+
+index.html
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Integración SQL con Node.js y Express</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #f4f4f9;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 30px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Registro de Usuarios</h1>
+
+  <form id="formUsuario">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required placeholder="Ej: Juan Pérez">
+
+    <label for="email">Correo Electrónico:</label>
+    <input type="email" id="email" name="email" required placeholder="Ej: juan@example.com">
+
+    <button type="submit">Guardar Registro</button>
+  </form>
+
+  <h2>Usuarios Registrados</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody id="tablaUsuarios">
+      <!-- Los registros se cargan dinámicamente -->
+    </tbody>
+  </table>
+
+  <script>
+    const form = document.getElementById('formUsuario');
+    const tabla = document.getElementById('tablaUsuarios');
+
+      async function cargarUsuarios() {
+      const res = await fetch('/api/usuarios');
+      const usuarios = await res.json();
+
+      tabla.innerHTML = '';
+      usuarios.forEach(u => {
+        const fila = document.createElement('tr');
+        fila.innerHTML = `
+          <td>${u.id}</td>
+          <td>${u.nombre}</td>
+          <td>${u.email}</td>
+        `;
+        tabla.appendChild(fila);
+      });
+    }
+
+        form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value;
+      const email = document.getElementById('email').value;
+
+      await fetch('/api/usuarios', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nombre, email })
+      });
+
+      form.reset();
+      cargarUsuarios(); // Actualiza la tabla dinámicamente
+    });
+
+        cargarUsuarios();
+  </script>
+
+</body>
+</html>

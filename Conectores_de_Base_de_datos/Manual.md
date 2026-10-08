@@ -68,6 +68,7 @@ Comprueba que el elemento de la tabla se actualiza de manera inmediata sin recar
 
 Server
 
+```
 const express = require('express');
 const Database = require('better-sqlite3');
 const path = require('path');
@@ -113,9 +114,10 @@ app.get('/api/usuarios', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor activo en http://localhost:${PORT}`);
 });
+```
 
 index.html
-
+```
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -244,3 +246,4 @@ index.html
 
 </body>
 </html>
+```

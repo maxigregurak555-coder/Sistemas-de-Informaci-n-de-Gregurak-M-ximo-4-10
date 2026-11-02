@@ -9,7 +9,7 @@ Encriptación en tránsito: La función es encriptar el mensaje mientras viaja p
 
 Encriptación a nivel de columna / campo:  Se utiliza para encriptar algunos datos específicos (nombre, apellido, contraseña, etc.). Algunos datos se encriptan de forma independiente para que no sea tan fácil de descubrir.
 
-Encriptación a nivel de tabla / espacio de tablas: En lugar de encriptar un solo archivo o un dato, se encripta una carpeta con todos sus archivos dentro.
+Encriptación a nivel de tabla / espacio de tablas: En lugar de encriptar un solo archivo o un dato, se encripta una carpeta con todos sus archivos dentro. 
 
 Encriptación transparente de datos (TDE) / a nivel de disco: Encarga de proteger los datos en el disco (físico).
 

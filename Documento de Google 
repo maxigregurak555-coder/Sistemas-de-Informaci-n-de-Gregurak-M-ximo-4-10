@@ -1,1 +1,40 @@
-https://docs.google.com/document/d/10Vp4nTjNcGEcgXMnnC7SH8C--FsAImAykjlBdvmWBXE/edit?usp=drivesdk
+📝 Trabajo Práctico: Seguridad y Encriptación de Datos
+🎯 Objetivos del Práctico
+Comprender la importancia de la confidencialidad de los datos.
+Investigar los diferentes niveles donde se pueden encriptar los datos.
+Experimentar manualmente con métodos de encriptación desde los más clásicos hasta los modernos.
+🔍 Parte 1: Cuestionario de Investigación (Teoría)Explica con tus palabras cuál es el objetivo principal de la encriptación en el contexto de la seguridad informática. En las bases de datos, los datos se pueden encriptar en diferentes "capas" o niveles. Investiga y explica brevemente en qué consiste cada uno:
+
+Encriptación en tránsito: La función es encriptar el mensaje mientras viaja por la red, para que nadie pueda interceptar el mensaje mientras viaja.
+
+Encriptación a nivel de columna / campo:  Se utiliza para encriptar algunos datos específicos (nombre, apellido, contraseña, etc.). Algunos datos se encriptan de forma independiente para que no sea tan fácil de descubrir.
+
+Encriptación a nivel de tabla / espacio de tablas: En lugar de encriptar un solo archivo o un dato, se encripta una carpeta con todos sus archivos dentro.
+
+Encriptación transparente de datos (TDE) / a nivel de disco: Encarga de proteger los datos en el disco (físico).
+
+¿Cuál es la diferencia principal entre el cifrado simétrico y el cifrado asimétrico?
+
+
+🏛️ Parte 2: Línea de Tiempo: Del Cifrado César al AES
+El Origen: El Cifrado César (Sustitución Simple)
+Es uno de los métodos más antiguos y simples. Consiste en desplazar un número fijo de posiciones en el alfabeto hacia adelante.Ejemplo: La A se convierte en D, la B en E, la C en F, etc.
+La Evolución Intermedia: DES y 3DES (Cifrado Simétrico Moderno)
+A mediados del siglo XX nacieron algoritmos matemáticos complejos para computadoras, como el DES (Data Encryption Standard). Usaba una clave secreta para mezclar los bits de los datos. Al volverse inseguro por el avance tecnológico, se creó el 3DES (Triple DES), que aplicaba el proceso tres veces.
+El Estándar Actual (El más avanzado): AES (Advanced Encryption Standard)
+Es el algoritmo de cifrado simétrico más seguro y utilizado en el mundo actual (usado por gobiernos, bancos y bases de datos como MySQL, PostgreSQL u Oracle). Utiliza matrices matemáticas complejas y claves de longitudes específicas. Romper una clave AES robusta por fuerza bruta tomaría miles de millones de años con la tecnología actual.
+
+
+
+
+
+
+🛠️ Parte 3: Actividades Prácticas (¡A Encriptar!)
+Actividad 1: El Desafío del Cifrado César (Manual)
+Utilizando el alfabeto estándar de 26 letras (A-Z, sin contar la Ñ para estandarizar), resuelve los siguientes desafíos:
+Aplica un desplazamiento de +3 a la siguiente palabra que simula un dato sensible de una base de datos:
+Palabra original: B _ A _ N _ C _ O
+Palabra cifrada: E _ D _ Q _ F _ F
+Un hacker interceptó tu base de datos y robó el siguiente apellido cifrado con un desplazamiento de +3. Descubre cuál es el apellido real restando 3 posiciones (-3) a cada letra:
+Apellido cifrado: K _ O _ U _ O
+Apellido real: H _ L _ R _ L

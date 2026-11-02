@@ -18,6 +18,9 @@ Encriptación transparente de datos (TDE) / a nivel de disco: Encarga de protege
 
 ¿Cuál es la diferencia principal entre el cifrado simétrico y el cifrado asimétrico?
 
+Cifrado simétrico: Se usa el mismo método para encriptar y desencriptar.
+
+Cifrado Asimétrico: Se encripta con una clave pública (la podés compartir con tu amigo y no pasa nada grabe), pero la desencriptacion se hace de forma diferente (con otro método para desencriptar) para que se más seguro, y si hace falta se usan varios métodos.
 
 🏛️ Parte 2: Línea de Tiempo: Del Cifrado César al AES
 El Origen: El Cifrado César (Sustitución Simple)

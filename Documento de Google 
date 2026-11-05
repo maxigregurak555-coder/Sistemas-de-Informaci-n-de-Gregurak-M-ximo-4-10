@@ -35,7 +35,7 @@ Actividad 1: El Desafío del Cifrado César (Manual)
 Utilizando el alfabeto estándar de 26 letras (A-Z, sin contar la Ñ para estandarizar), resuelve los siguientes desafíos:
 Aplica un desplazamiento de +3 a la siguiente palabra que simula un dato sensible de una base de datos:
 Palabra original: B _ A _ N _ C _ O
-Palabra cifrada: E _ D _ Q _ F _ F
+Palabra cifrada: E _ D _ Q _ F _ R
 Un hacker interceptó tu base de datos y robó el siguiente apellido cifrado con un desplazamiento de +3. Descubre cuál es el apellido real restando 3 posiciones (-3) a cada letra:
 Apellido cifrado: K _ O _ U _ O
 Apellido real: H _ L _ R _ L
